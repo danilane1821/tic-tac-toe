@@ -2,8 +2,8 @@ import java.util.*;
 
 public class TicTacToe {
 
-    static ArrayList<InternalError> playerPositions =  new ArrayList<>();
-    static ArrayList<InternalError> cpuPositions =  new ArrayList<>();
+    static ArrayList<Integer> playerPositions =  new ArrayList<>();
+    static ArrayList<Integer> cpuPositions =  new ArrayList<>();
 
     public static void main (String[] args) {
 
@@ -30,21 +30,31 @@ public class TicTacToe {
 
             placePiece(gameBoard,playerPos, "player");
 
+//            this makes sure we check winner and result after each play
+            String result = checkWinner();
+            if(result.length() > 0){
+                System.out.println(result);
+                break;
+            }
+
             Random rand = new Random();
             int cpuPos = rand.nextInt(9) + 1;
 
             while(playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPositions)){
-                System.out.println("position taken.. pick another");
                  cpuPos = rand.nextInt(9) + 1;
             }
-
 
             placePiece(gameBoard,cpuPos, "cpu");
 
             printGameBoard(gameBoard);
 
-            String result = checkWinner();
-            System.out.println(result);
+            // this makes sure we check winner and result after each play
+            result = checkWinner();
+            if(result.length() > 0){
+                System.out.println(result);
+                break;
+            }
+
         }
 
 
@@ -118,7 +128,7 @@ public class TicTacToe {
         List rightCol = Arrays.asList(3, 6, 9);
 
         List cross1 = Arrays.asList(1, 5, 9);
-        List cross2 = Arrays.asList(7, 5, 3);
+        List cross2 = Arrays.asList(3, 5, 7);
 
         List<List> winCon = new ArrayList<List>();
         winCon.add(topRow);
@@ -139,8 +149,6 @@ public class TicTacToe {
                 return "TIE!!!";
             }
         }
-
-
 
         return "";
     }
