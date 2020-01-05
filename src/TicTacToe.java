@@ -40,7 +40,7 @@ public class TicTacToe {
             Random rand = new Random();
             int cpuPos = rand.nextInt(9) + 1;
 
-            while(playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPositions)){
+            while(playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPos)){
                  cpuPos = rand.nextInt(9) + 1;
             }
 
