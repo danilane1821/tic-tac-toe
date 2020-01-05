@@ -30,7 +30,7 @@ public class TicTacToe {
 
             placePiece(gameBoard,playerPos, "player");
 
-//            this makes sure we check winner and result after each play
+//            this makes sure we check winner for player and result after each play
             String result = checkWinner();
             if(result.length() > 0){
                 System.out.println(result);
@@ -48,7 +48,7 @@ public class TicTacToe {
 
             printGameBoard(gameBoard);
 
-            // this makes sure we check winner and result after each play
+            // this makes sure we check winner for cpu and result after each play
             result = checkWinner();
             if(result.length() > 0){
                 System.out.println(result);
@@ -117,6 +117,8 @@ public class TicTacToe {
                 break;
         }
     }
+
+//    checks all available positions to win with and adds them to the List to check against
 
     public static String checkWinner() {
         List topRow = Arrays.asList(1, 2, 3);
